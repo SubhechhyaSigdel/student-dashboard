@@ -47,6 +47,7 @@ function StudentFilters({
           className="mb-1.5 block text-xs font-medium text-stone-500 dark:text-stone-400">
           Course
         </label>
+
         <select
           id="course-filter"
           value={selectedCourse}
