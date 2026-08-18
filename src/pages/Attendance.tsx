@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-
 import type { Student } from "../data/students";
 import {
   attendanceRecords as initialAttendanceRecords,
@@ -33,23 +32,6 @@ function Attendance() {
   useEffect(() => {
     localStorage.setItem("attendance", JSON.stringify(records));
   }, [records]);
-
-  /*
-   * Remove attendance records belonging to deleted students.
-   */
-  useEffect(() => {
-    const validStudentIds = new Set(students.map((student) => student.id));
-
-    setRecords((currentRecords) => {
-      const cleanedRecords = currentRecords.filter((record) =>
-        validStudentIds.has(record.studentId),
-      );
-
-      return cleanedRecords.length === currentRecords.length
-        ? currentRecords
-        : cleanedRecords;
-    });
-  }, [students]);
 
   const formatStudentId = (id: number) => `STU-${String(id).padStart(3, "0")}`;
 
@@ -124,11 +106,6 @@ function Attendance() {
     return students.slice(startIndex, startIndex + studentsPerPage);
   }, [currentPage, students]);
 
-  useEffect(() => {
-    if (currentPage > totalPages) {
-      setCurrentPage(totalPages);
-    }
-  }, [currentPage, totalPages]);
 
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(event.target.value);
@@ -270,7 +247,7 @@ function Attendance() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[760px]">
+          <table className="w-full min-w-190">
             <thead>
               <tr className="border-b border-stone-200 dark:border-stone-800">
                 <th className="px-6 py-4 text-left text-xs font-medium text-stone-500 dark:text-stone-400">

@@ -1,8 +1,6 @@
 import { useMemo, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-
 import type { Student } from "../data/students";
-
 import StudentFilters from "./StudentFilters";
 import StudentTable from "./StudentTable";
 import AddStudentModal from "./AddStudentModal";
@@ -19,7 +17,6 @@ function StudentList() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCourse, setSelectedCourse] = useState("All");
   const [selectedStatus, setSelectedStatus] = useState("All");
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
   const [viewingStudent, setViewingStudent] = useState<Student | null>(null);

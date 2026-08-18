@@ -2,6 +2,7 @@ type StudentFiltersProps = {
   searchTerm: string;
   selectedCourse: string;
   selectedStatus: string;
+  courses: string[];
   onSearchChange: (value: string) => void;
   onCourseChange: (value: string) => void;
   onStatusChange: (value: string) => void;
@@ -11,6 +12,7 @@ function StudentFilters({
   searchTerm,
   selectedCourse,
   selectedStatus,
+  courses,
   onSearchChange,
   onCourseChange,
   onStatusChange,
@@ -45,17 +47,18 @@ function StudentFilters({
           className="mb-1.5 block text-xs font-medium text-stone-500 dark:text-stone-400">
           Course
         </label>
-
         <select
           id="course-filter"
           value={selectedCourse}
           onChange={(event) => onCourseChange(event.target.value)}
-          className={selectClassName}>
+          className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-sm text-stone-700 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200">
           <option value="All">All Courses</option>
-          <option value="Mathematics">Mathematics</option>
-          <option value="Science">Science</option>
-          <option value="Computer">Computer</option>
-          <option value="Physics">Physics</option>
+
+          {courses.map((course) => (
+            <option key={course} value={course}>
+              {course}
+            </option>
+          ))}
         </select>
       </div>
 
