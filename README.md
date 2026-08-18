@@ -26,3 +26,5 @@ StudentHub allows administrators to manage students, track attendance, and manag
 * Vite
 * LocalStorage
 
+## Live Demo
+https://studenthub.subhechhyasigdel.com.np/
