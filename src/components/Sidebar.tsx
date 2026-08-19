@@ -54,10 +54,6 @@ function Sidebar({ onNavigate }: SidebarProps) {
             <h1 className="font-bold text-stone-900 dark:text-stone-100">
               StudentHub
             </h1>
-
-            <p className="text-xs text-stone-500 dark:text-stone-400">
-              Management System
-            </p>
           </div>
         </div>
       </div>

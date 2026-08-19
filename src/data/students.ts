@@ -51,9 +51,9 @@ export const students: Student[] = [
 },
 {
   id: 7,
-  name: "Narayani",
+  name: "Lily",
   course: "Science",
-  email: "narayani@gmail.com",
+  email: "lily@gmail.com",
   status: "Active",
 },
 {

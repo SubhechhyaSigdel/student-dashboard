@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import Sidebar from "./Sidebar";
-import DashboardHeader from "./DashboardHeader";
 
 import { students as initialStudents } from "../data/students";
 import type { Student } from "../data/students";
@@ -58,17 +57,14 @@ function DashboardLayout() {
           <header className="sticky top-0 z-30 border-b border-stone-200 bg-stone-50/95 backdrop-blur dark:border-stone-800 dark:bg-stone-950/95">
             <div className="flex items-center gap-4 px-4 py-4 md:px-8">
               {/* Mobile Menu Button */}
-              <button
-                type="button"
-                onClick={toggleSidebar}
-                aria-label="Open sidebar"
-                aria-expanded={isSidebarOpen}
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-stone-600 transition hover:bg-stone-100 hover:text-stone-900 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100 md:hidden">
-                ☰
-              </button>
-
-              <div className="min-w-0 flex-1">
-                <DashboardHeader />
+              <div className="flex items-center px-4 py-4 md:px-8">
+                <button
+                  type="button"
+                  onClick={() => setIsSidebarOpen((current) => !current)}
+                  aria-label="Open sidebar"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-stone-600 transition hover:bg-stone-100 hover:text-stone-900 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100 md:hidden">
+                  ☰
+                </button>
               </div>
             </div>
           </header>
